@@ -1,16 +1,40 @@
 import Vue from 'vue'
-import VueRouter from 'vue-router'
+import Router from 'vue-router'
 
-Vue.use(VueRouter)
+const first = ()=> import("../views/home/first/first");
+const search = ()=> import("../views/home/search/search");
+const car = ()=> import("../views/home/car/car");
+const profile = ()=> import("../views/home/profile/profile");
+
+const originalPush = Router.prototype.push
+Router.prototype.push = function push(location) {
+  return originalPush.call(this, location).catch(err => err)
+}
+
+Vue.use(Router)
 
   const routes = [
-
+    {
+      path:"",
+      redirect:"/first"
+    },{
+      path:"/first",
+      component:first
+    },{
+       path:"/search",
+       component:search
+    },{
+      path:"/car",
+      component:car
+    },{
+      path:"/profile",
+      component:profile
+    }
 ]
 
-const router = new VueRouter({
-  mode: 'history',
-  base: process.env.BASE_URL,
-  routes
+export default new Router({
+  routes,
+  mode:"history",
 })
-
-export default router
+ 
+document.title = "爱购物"
