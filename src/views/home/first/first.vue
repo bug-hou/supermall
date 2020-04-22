@@ -1,19 +1,18 @@
 <!--  -->
 <template>
   <div id="home">
-<nav-bar><div slot="main">购物街</div></nav-bar>
-
+<nav-bar><div slot="main" style="color:#fff">购物街</div></nav-bar>
+  <vartab class="vartab varshow" :vartab="vartab" @show="show" v-show="varshow" ref="varbarshow1"/>
 <scroll class="swap" ref="scroll" @scrolly="position" @fush="fush">
   <home-swiper :banners="banners"/>
   <second :recommends="recommends"/>
   <three/>
-  <vartab class="vartab" :vartab="vartab" @show="show"/>
+  <vartab class="vartab" :vartab="vartab" @show="show" ref="varbarshow"/>
   <goods :goodslist="goods[item]"/>
 </scroll>
 <top class="top" @click.native="back" :style="isshow"/>
   </div>
 </template>
-
 <script>
 
 import navBar from "components/common/navbar/navBar"
@@ -42,10 +41,23 @@ export default {
        sell:{page:1,list:[]}
      },
      item:"pop",
-     display:"none"
+     display:"none",
+     varshow:false,
+     height: 0 ,
+     positionY:0,
+     count:0
     };
   },
- 
+  deactivated() {
+    this.count = this.$refs.varbarshow.current;
+   this.positionY = (this.$refs.scroll.scroll.y);
+  },
+  activated() {
+    this.$refs.varbarshow.current = this.count
+    this.$refs.scroll.scroll.scrollTo(0,this.positionY);
+    // console.log(this.$refs.scroll.scroll);
+    console.log(this.positionY)
+  },
   created() {
     getHomeNav().then(res=>{
       this.res = res;
@@ -75,25 +87,19 @@ export default {
   },
 
   mounted(){
+
     // const refresh = this.debounce(this.$refs.scroll.scroll.refresh,200);
     console.log(this.$refs.scroll);
     this.$bus.$on("imgload",()=>{
+      console.log(this.$refs.scroll.scroll.refresh());
       this.$refs.scroll.scroll.refresh();
       })
-      // refresh();
+      this.$bus.$on("swiperimgload",()=>{
+      this.height = (this.$refs.varbarshow.$el.offsetTop)
+      })
   },
 
   methods: {
-    debounce(func,time){
-       let timer = null;
-       return function(){
-         if(timer)clearTimeout(timer);
-         timer = setTimeout(()=>{
-            func();
-            console.log("---");
-         },time)
-       }
-    },
     // 用来获取到网络资源
     getGoods(type){
       const page = this.goods[type].page;
@@ -112,16 +118,22 @@ export default {
         }else{
           this.item = "sell"
         }
+        this.$refs.varbarshow.current = i;
+        if(this.$refs.varbarshow1) this.$refs.varbarshow1.current = i;
     },
     back(){
-      console.log(this.$refs.scroll.scroll);
-      this.$refs.scroll.scroll.scrollTo(0,0,500);
+      this.$refs.scroll.scroll.scrollTo(0,0,1000);
     },
     position(Y){
       if(Y<-1000){
         this.display = "block"
       }else{
         this.display = "none"
+      }
+      if(Y<=-this.height){
+         this.varshow = true;
+      }else{
+        this.varshow = false;
       }
     },
     fush(){
@@ -141,8 +153,8 @@ export default {
   height: 100vh;
 }
 .vartab{
-  position: sticky;
-  top: 44px;
+  /* position: sticky; */
+  /* top: 44px; */
   background-color: #fff;
 }
 .swap{
@@ -152,5 +164,11 @@ export default {
   left: 0;
   right: 0;
   overflow: hidden;
+}
+.varshow{
+  position: fixed;
+  top: 44px;
+  left: 0;
+  right: 0;
 }
 </style>

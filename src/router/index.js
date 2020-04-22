@@ -5,6 +5,7 @@ const first = ()=> import("../views/home/first/first");
 const search = ()=> import("../views/home/search/search");
 const car = ()=> import("../views/home/car/car");
 const profile = ()=> import("../views/home/profile/profile");
+const detail = ()=> import("../views/home/detail/detail");
 
 const originalPush = Router.prototype.push
 Router.prototype.push = function push(location) {
@@ -29,6 +30,9 @@ Vue.use(Router)
     },{
       path:"/profile",
       component:profile
+    },{
+      path:"/detail/:id",
+      component:detail
     }
 ]
 
