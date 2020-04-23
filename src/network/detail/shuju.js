@@ -8,3 +8,12 @@ export class shuju{
         this.goodsCount = shopInfo.cGoods;
     }
 }
+export class shuju2{
+    constructor(itemParams){
+        this.infoKey = itemParams.info.key;
+        this.set = itemParams.info.set;
+        this.disclaimer = itemParams.rule.disclaimer;
+        this.ruleKey = itemParams.rule.key;
+        this.tables = itemParams.rule.tables[0];
+    }
+}

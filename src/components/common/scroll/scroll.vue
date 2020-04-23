@@ -30,7 +30,7 @@ export default {
            this.$emit("scrolly",position.y);
      })
       this.scroll.on("pullingUp",()=>{
-       console.log("lll");
+      //  console.log("lll");
                this.$emit("fush")
       });
   },

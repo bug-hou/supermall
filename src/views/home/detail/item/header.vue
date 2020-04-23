@@ -29,7 +29,6 @@ export default {
       navbar
   },
   created() {
-    //   console.log(this.shuju);
   },
 
   computed: {},
@@ -39,6 +38,7 @@ export default {
   methods: {
       dian(index){
           this.current = index;
+          this.$emit("position",index);
       },
       back(){
         //   console.log(this.$router);

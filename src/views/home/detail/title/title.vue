@@ -9,12 +9,12 @@
       </div>
       <!-- <div>{{counts}}</div> -->
       <div class="count">
-          <div class="shu">{{counts[0]}}</div>
+          <div class="shu ">{{counts[0]}}</div>
           <div class="shou">{{counts[1]}}</div>
-          <div class="bao">{{counts[2]}}</div>
+          <div class="bao ">{{counts[2]}}</div>
       </div>
       <div class="service">
-         <div v-for="(item,index) in ser" :key="index" v-show="index!==0">{{item.name}}</div>
+         <div v-for="(item,index) in ser" :key="index" v-show="index!==0" class="iconfont icon-xuanzhong1">{{item.name}}</div>
       </div>
   </div>
 </template>
@@ -58,6 +58,7 @@ export default {
 
 </script>
 <style scoped>
+@import url(//at.alicdn.com/t/font_1674147_h55w90t93y9.css);
 .first{
     box-shadow: 0px 1px 3px rgba(100, 100, 100, .4);
     padding-bottom: 5px;
@@ -98,18 +99,19 @@ export default {
     align-items: center;
     color: #999;
     margin:0 5px;
-    margin-top: 10px;
+    margin-top: 30px;
     padding-bottom:4px ;
     border-bottom: 1px solid #999;
 }
 .service{
     width: 100%;
-    margin-top: 5px;
-    height: 30px;
-    line-height:30px;
+    height: 60px;
+    line-height:60px;
     text-align: center;
     display: flex;
     justify-content: space-between;
+}
+.service>.iconfont{
     font-size: 12px;
 }
 </style>

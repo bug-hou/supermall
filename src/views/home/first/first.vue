@@ -54,9 +54,10 @@ export default {
   },
   activated() {
     this.$refs.varbarshow.current = this.count
-    this.$refs.scroll.scroll.scrollTo(0,this.positionY);
+    this.$refs.scroll.scroll.scrollTo(0,this.positionY,100);
     // console.log(this.$refs.scroll.scroll);
-    console.log(this.positionY)
+  //  console.log(this.$refs.scroll.scroll.refresh)
+   this.$refs.scroll.scroll.refresh()
   },
   created() {
     getHomeNav().then(res=>{
@@ -87,11 +88,10 @@ export default {
   },
 
   mounted(){
-
     // const refresh = this.debounce(this.$refs.scroll.scroll.refresh,200);
-    console.log(this.$refs.scroll);
+    // console.log(this.$refs.scroll);
     this.$bus.$on("imgload",()=>{
-      console.log(this.$refs.scroll.scroll.refresh());
+      // console.log(this.$refs.scroll.scroll.refresh());
       this.$refs.scroll.scroll.refresh();
       })
       this.$bus.$on("swiperimgload",()=>{
@@ -144,7 +144,6 @@ export default {
     },
   }
 }
-
 </script>
 <style>
 #home{
