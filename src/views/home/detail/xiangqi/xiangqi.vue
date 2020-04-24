@@ -3,7 +3,7 @@
   <div id="Xbox">
       <div class="Xbox">
           <div class="column" v-for="(item,index) in itemParams.tables" :key="index">
-              <div v-for="it in item" :key="it">{{it}}</div>
+              <div v-for="(it,index) in item" :key="index">{{it}}</div>
           </div>
       </div>
       <div class="set" v-for="(item,index) in itemParams.set" :key="index">

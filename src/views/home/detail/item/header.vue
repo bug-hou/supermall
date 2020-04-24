@@ -13,7 +13,7 @@ import navbar from "components/common/navbar/navBar"
 export default {
   data () {
     return {
-        current : 0,
+      current:0
     };
   },
   props:{
@@ -23,6 +23,10 @@ export default {
             return []
         }
     },
+    // current :{
+    //   type:Number,
+    //   default:0
+    // },
     shuju:{}
   },
   components: {

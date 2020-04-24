@@ -30,7 +30,6 @@ export default {
 
   methods: {
     goodsclick(item){
-      console.log(item)
       this.$router.push("/detail/"+item.iid);
     }
   }

@@ -17,3 +17,11 @@ export class shuju2{
         this.tables = itemParams.rule.tables[0];
     }
 }
+export class shuju3{
+    constructor(rate){
+        this.content = rate.content;
+        this.created = rate.created;
+        this.explain = rate.explain;
+        this.style = rate.style;
+    }
+}

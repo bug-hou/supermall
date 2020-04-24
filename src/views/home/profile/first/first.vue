@@ -1,7 +1,8 @@
 <!--  -->
 <template>
-  <div>
-      
+  <div id="first">
+      <div><img src="" alt=""></div>
+      <div><span>BUG</span></div>
   </div>
 </template>
 
@@ -22,5 +23,5 @@ export default {
 }
 
 </script>
-<style>
+<style scoped>
 </style>

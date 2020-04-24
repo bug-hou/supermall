@@ -18,7 +18,6 @@ export default {
   },
   props:{
       item:{
-
           default(){
               return {}
           }

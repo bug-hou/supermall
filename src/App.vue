@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <keep-alive exclude="detail">
+    <keep-alive exclude="detail" v-if="$store.state.isRouterAlive">
     <router-view></router-view>
     </keep-alive>
     <main-footer/>
