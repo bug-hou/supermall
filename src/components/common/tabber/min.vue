@@ -4,7 +4,6 @@
     <div :class="{active:isactive}"><slot name="icon"></slot></div>
     <div :style="isColor"><slot name="name"></slot></div>
 </div>
-      <!-- <div><div class="iconfont icon-index"></div>主页</div> -->
 </template>
 
 <script>

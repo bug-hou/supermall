@@ -26,7 +26,6 @@ export default {
          probeType:3
      }),
      this.scroll.on("scroll",position=>{
-      //  console.log("lll");
            this.$emit("scrolly",position.y);
      })
       this.scroll.on("pullingUp",()=>{
