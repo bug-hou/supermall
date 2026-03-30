@@ -2,7 +2,7 @@
 <template>
   <div id="car">
     <car-bar>
-      <div slot="main">购物车</div>
+      <div slot="main">爱心车</div>
       <div slot="right" class="iconfont icon-refresh" @click="refresh"></div>
     </car-bar>
     <scroll class="Cscroll">

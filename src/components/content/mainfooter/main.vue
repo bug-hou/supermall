@@ -6,7 +6,7 @@
       <min path="/search"><div slot="icon" class="iconfont icon-sort"></div>
       <div slot="name">分类</div></min>
       <min path="/car"><div slot="icon" class="iconfont icon-che"></div>
-      <div slot="name">购物车</div></min>
+      <div slot="name">爱心车</div></min>
       <min path="/me"><div slot="icon" class="iconfont icon-Icon_wode--outline"></div>
       <div slot="name">我的</div></min>
     </tabber>
