@@ -7,7 +7,7 @@
           <div class="iconfont icon-shoucang1">收藏</div>
       </div>
       <div class="Bright">
-          <div @click="Bgou">购物车</div>
+          <div @click="Bgou">爱心车</div>
           <div>立即购买</div>
       </div>
   </div>
